@@ -25,12 +25,10 @@ namespace WebApiRuleta.Repo
         {
             List<Client> _listClients = new List<Client>();
             var List = await this.db.ListRangeAsync("Clients");
-
             if (List == null || !List.Any())
             {
                 return null;
             }
-
             foreach (var client in List)
             {
                 var json = (string)client;
@@ -48,6 +46,7 @@ namespace WebApiRuleta.Repo
             {
                 return null;
             }
+
             return client.Where(cli => cli.Id == id).FirstOrDefault();
         }
         public async Task AddClient(Client newClient)
@@ -72,9 +71,7 @@ namespace WebApiRuleta.Repo
                 {
                     cli.AmountAvailable = cli.AmountAvailable + amount;
                 };
-
                 ListClientsRedis.Add((RedisValue)JsonSerializer.Serialize(cli));
-
             }
             bool delete = await this.db.KeyDeleteAsync("Clients");
             await this.db.ListLeftPushAsync("Clients", ListClientsRedis.ToArray());
@@ -89,9 +86,7 @@ namespace WebApiRuleta.Repo
                 {
                     cli.AmountAvailable = cli.AmountAvailable - amount;
                 };
-
                 ListClientsRedis.Add((RedisValue)JsonSerializer.Serialize(cli));
-
             }
             bool delete = await this.db.KeyDeleteAsync("Clients");
             await this.db.ListLeftPushAsync("Clients", ListClientsRedis.ToArray());

@@ -8,14 +8,11 @@ namespace WebApiRuleta.Repo
     public class RepoRoulette:IRepoRoulette
     {
         #region Instance
-
         private readonly IRPClient instacli;
-
         public RepoRoulette(IRPClient Instacli)
         {
             this.instacli = Instacli;
         }
-
         #endregion
 
         #region List Roulette and Bet
@@ -38,14 +35,12 @@ namespace WebApiRuleta.Repo
         public Task<int> CreateNewRoulette(string RouletteName)
         {
             int IdRoulette = _listRoulette.Count() + 1;
-
             Roulette newroulette = new Roulette()
             {
                 IdRoulette = IdRoulette,
                 RouletteName = RouletteName,
                 RouletteState = false
             };
-
             _listRoulette.Add(newroulette);
 
             return Task.FromResult(IdRoulette);
@@ -73,19 +68,14 @@ namespace WebApiRuleta.Repo
 
         public async Task<int> CreateNewBet(Bet newbet)
         {
+            newbet.BetColor = "Black";
             if ((newbet.BetNumber % 2) == 0)
             {
                 newbet.BetColor = "Red";
             }
-            else
-            {
-                newbet.BetColor = "Black";
-            }
             newbet.IdBet = _listBet.Count() + 1;
             _listBet.Add(newbet);
-
             var Listcli = await instacli.ListClients();
-
             foreach (var cli in Listcli)
             {
                 if (newbet.IdClient == cli.Id)

@@ -13,16 +13,13 @@ namespace WebApiRuleta.Controllers
     public class RouletteController : ControllerBase
     {
         #region Instance
-
         private readonly IRepoRoulette Instance;
         private readonly IRPClient instacli;
-
         public RouletteController(IRepoRoulette Instancia, IRPClient Instacli)
         {
             this.Instance = Instancia;
             instacli = Instacli;
         }
-
         #endregion
 
         [HttpGet("ListRoulette")]
@@ -67,7 +64,6 @@ namespace WebApiRuleta.Controllers
             try
             {
                 Roulette consult = await Instance.ConsultRoulette(IdRoulette);
-
                 if (consult != null)
                 {
 
@@ -97,7 +93,6 @@ namespace WebApiRuleta.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
-
         }
 
         [HttpPost("OpenRoulette {IdRoulette}")]
@@ -137,7 +132,6 @@ namespace WebApiRuleta.Controllers
             {
                 Client cli = await instacli.GetClient(newbet.IdClient);
                 Roulette consult = await Instance.ConsultRoulette(newbet.IdRoulette);
-
                 if (cli == null)
                 {
                     return NotFound("El cliente " + newbet.IdClient + " no existe.");
@@ -162,7 +156,6 @@ namespace WebApiRuleta.Controllers
                 {
                     return BadRequest("el rango de la apuesta va desde 1 hasta 10000.");
                 }
-
                 int IdBet = await Instance.CreateNewBet(newbet);
 
                 return CreatedAtAction(nameof(CreateNewBet), "La apuesta fue registrado bajo el Id: " + IdBet);
@@ -186,7 +179,6 @@ namespace WebApiRuleta.Controllers
                 int win = 0;
                 string colorwing = "Black";
                 var Win = rnd.Next(1, 36);
-
                 if ((win % 2) == 0)
                 {
                     colorwing = "Red";
@@ -237,7 +229,6 @@ namespace WebApiRuleta.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
-
         }
     }
 }

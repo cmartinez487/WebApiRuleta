@@ -14,14 +14,11 @@ namespace WebApiRuleta.Controllers
     public class ClientController : ControllerBase
     {
         #region Instance
-
         private readonly IRPClient instacli;
-
         public ClientController(IRPClient Instacli)
         {
             this.instacli = Instacli;
         }
-
         #endregion
 
         [HttpGet("ListClient")]

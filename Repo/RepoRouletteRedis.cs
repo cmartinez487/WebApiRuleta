@@ -77,7 +77,6 @@ namespace WebApiRuleta.Repo
             {
                 IdRoulette = Roulettes.Count() + 1;
             }
-            
             Roulette newroulette = new Roulette()
             {
                 IdRoulette = IdRoulette,
@@ -85,7 +84,6 @@ namespace WebApiRuleta.Repo
                 RouletteState = false
             };
             var json = JsonSerializer.Serialize(newroulette);
-
             await this.db.ListLeftPushAsync("Roulettes", json);
 
             return IdRoulette;
@@ -95,7 +93,6 @@ namespace WebApiRuleta.Repo
         {
             List<RedisValue> ListRouRedis = new List<RedisValue>();
             var Roulettes = await ListRoulette();
-
             bool state = false;
             foreach (var rou in Roulettes)
             {
@@ -136,7 +133,6 @@ namespace WebApiRuleta.Repo
         {
             List<RedisValue> ListRouRedis = new List<RedisValue>();
             var Roulettes = await ListRoulette();
-
             bool state = false;
             foreach (var rou in Roulettes)
             {
@@ -149,7 +145,6 @@ namespace WebApiRuleta.Repo
                 }
                 ListRouRedis.Add((RedisValue)JsonSerializer.Serialize(rou));
             }
-
             bool delete = await this.db.KeyDeleteAsync("Roulettes");
             await this.db.ListLeftPushAsync("Roulettes", ListRouRedis.ToArray());
 
