@@ -1908,19 +1908,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cmart\\.nuget\\packages\\": {}
+    "C:\\Users\\cmartinez\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repositorios\\WebApiRuleta\\WebApiRuleta.csproj",
+      "projectUniqueName": "D:\\Respaldo - Documentos\\Respaldo Win10\\Repo\\WebApiRuleta\\WebApiRuleta.csproj",
       "projectName": "WebApiRuleta",
-      "projectPath": "C:\\Repositorios\\WebApiRuleta\\WebApiRuleta.csproj",
-      "packagesPath": "C:\\Users\\cmart\\.nuget\\packages\\",
-      "outputPath": "C:\\Repositorios\\WebApiRuleta\\obj\\",
+      "projectPath": "D:\\Respaldo - Documentos\\Respaldo Win10\\Repo\\WebApiRuleta\\WebApiRuleta.csproj",
+      "packagesPath": "C:\\Users\\cmartinez\\.nuget\\packages\\",
+      "outputPath": "D:\\Respaldo - Documentos\\Respaldo Win10\\Repo\\WebApiRuleta\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cmart\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cmartinez\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1928,7 +1928,9 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "http://dev.estratec.com.co:81/nuget": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://estratec.pkgs.visualstudio.com/SMSSMPP2020/_packaging/MasivianSmsDataManagerReport/nuget/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
@@ -1977,7 +1979,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
